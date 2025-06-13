@@ -1,3 +1,4 @@
 user_name,paths,ips,keys
 johndoe,/home/john /mnt/data,10.0.0.1 10.0.0.2 10.0.0.3,"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3example3 user2@host" "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD4example4 user2@host"
 janedoe,/srv/jane /srv/backup,192.168.1.100 192.168.1.101 192.168.1.102,"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD5example5 user3@host" "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD6example6 user3@host"
+moliver,/srv/moliver,192.168.1.100,"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD5example5 user3@host"
