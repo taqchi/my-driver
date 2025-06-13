@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Installing Terraform..."
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.8.2/terraform_1.8.2_linux_amd64.zip
+      - unzip terraform.zip
+      - mv terraform /usr/local/bin/
+      - terraform -version
+
+  pre_build:
+    commands:
+      - ./ips.sh
+      - ./create_users.sh
+      - echo "Setting up Terraform backend (if any)..."
+      - terraform init -input=false
+
+  build:
+    commands:
+      - echo "Planning Terraform changes..."
+      - terraform plan -out=tfplan
+
+  post_build:
+    commands:
+      - echo "Applying Terraform changes..."
+      - terraform apply -auto-approve tfplan
+
+artifacts:
+  files:
+    - '**/*'
