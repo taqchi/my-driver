@@ -16,7 +16,7 @@ phases:
   pre_build:
     commands:
       - chmod +x *.sh
-      - ./validate.sh && /ips.sh && ./create_users.sh
+      - ./validate.sh && ./ips.sh && ./create_users.sh
 
   build:
     commands:
