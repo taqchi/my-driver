@@ -12,15 +12,16 @@ phases:
       - mv terraform /usr/local/bin/
       - terraform -version
 
+
   pre_build:
     commands:
-      - ./ips.sh
-      - ./create_users.sh
-      - echo "Setting up Terraform backend (if any)..."
-      - terraform init -input=false
+      - chmod +x *.sh
+      - ./validate.sh && /ips.sh && ./create_users.sh
 
   build:
     commands:
+      - echo "Setting up Terraform backend (if any)..."
+      - terraform init -input=false
       - echo "Planning Terraform changes..."
       - terraform plan -out=tfplan
 
